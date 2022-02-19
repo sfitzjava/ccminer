@@ -1619,6 +1619,7 @@ static bool stratum_gen_work(struct stratum_ctx *sctx, struct work *work)
 		memcpy(&work->data[9], sctx->job.coinbase, 32+32); // merkle [9..16] + reserved
 		work->data[25] = le32dec(sctx->job.ntime);
 		work->data[26] = le32dec(sctx->job.nbits);
+		work->hash_ver = sctx->job.hash_ver;
 		memcpy(&work->data[27], sctx->xnonce1, sctx->xnonce1_size & 0x1F); // pool extranonce
 		work->data[35] = 0x80;
 		//applog_hex(work->data, 140);

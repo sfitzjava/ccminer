@@ -16,5 +16,14 @@
  * Best used on recent x64 processors (Haswell or better).
  *
  **/
+#include "SSE2NEON.h"
+typedef int32x4_t _m128i;
 
 uint64_t verusclhash_port(void * random, const unsigned char buf[64], uint64_t keyMask, uint32_t *  __restrict fixrand, uint32_t * __restrict fixrandex);
+uint64_t verusclhashv2_1(void * random, const unsigned char buf[64], uint64_t keyMask, uint32_t *fixrand, uint32_t *fixrandex,
+	_m128i *g_prand, _m128i *g_prandex);
+uint64_t verusclhashv2_2(void * random, const unsigned char buf[64], uint64_t keyMask, uint32_t *fixrand, uint32_t *fixrandex,
+	_m128i *g_prand, _m128i *g_prandex);
+uint64_t verusclhash_port(void * random, const unsigned char buf[64], uint64_t keyMask, uint32_t *fixrand, uint32_t *fixrandex,
+	_m128i *g_prand, _m128i *g_prandex);
+

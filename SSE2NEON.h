@@ -429,6 +429,15 @@ FORCE_INLINE void _mm_storel_epi64(__m128i* a, __m128i b)
 	*a = vreinterpretq_m128i_u64(vcombine_u64(lo, hi));
 }
 
+FORCE_INLINE __m128i _mm_loadl_epi64(__m128i const *p)
+{
+    /* Load the lower 64 bits of the value pointed to by p into the
+     * lower 64 bits of the result, zeroing the upper 64 bits of the result.
+     */
+    return vreinterpretq_m128i_s32(
+        vcombine_s32(vld1_s32((int32_t const *) p), vcreate_s32(0)));
+}
+
 // Loads a single single-precision, floating-point value, copying it into all four words https://msdn.microsoft.com/en-us/library/vstudio/5cdkf716(v=vs.100).aspx
 FORCE_INLINE __m128 _mm_load1_ps(const float * p)
 {
