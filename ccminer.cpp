@@ -1764,7 +1764,7 @@ static bool wanna_mine(int thr_id)
 		float temp = gpu_temp(cgpu);
 		if (temp > opt_max_temp) {
 			if (!conditional_state[thr_id] && !opt_quiet)
-				gpulog(LOG_INFO, thr_id, "temperature too high (%.0f°c), waiting...", temp);
+				gpulog(LOG_INFO, thr_id, "temperature too high (%.0fÂ°c), waiting...", temp);
 			state = false;
 		} else if (opt_max_temp > 0. && opt_resume_temp > 0. && conditional_state[thr_id] && temp > opt_resume_temp) {
 			if (!thr_id && opt_debug)
@@ -3665,14 +3665,13 @@ int main(int argc, char *argv[])
 	// get opt_quiet early
 	parse_single_opt('q', argc, argv);
 
-	printf("*** ccminer " PACKAGE_VERSION " for CPU's by Monkins1010 based on ccminer***\n");
+	printf("*** ccminer " PACKAGE_VERSION " for CPU's by Sfitzjava based on ccminer***\n");
 	if (!opt_quiet) {
 		const char* arch = is_x64() ? "64-bits" : "32-bits";
 
 
-		printf("  Originally based on Christian Buchner and Christian H. project\n");
-		printf("BTC donation address: 1AJdfCpLWPNoAMDfHF1wD5y8VgKSSTHxPo (tpruvot)\n\n");
-		printf("Verus donation address: REoPcdGXthL5yeTCrJtrQv5xhYTknbFbec  (monkins)\n");
+		printf("  Originally based on Monkins1010, Christian Buchner and Christian H. project\n");
+		printf("Verus donation address: RTeCWfJY3GJF1g13fHFMAysqffCAULFZpT  (sfitzjava)\n");
 	}
 
 	rpc_user = strdup("");
