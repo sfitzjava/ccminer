@@ -17,4 +17,8 @@ With a 4 core CPU running 3 thread performance was see to be around 80kh, but ra
 
 About source code dependencies
 ------------------------------
-.. TODO, additional commands to load needed libraries to RPi
+Initially use the following command to install needed libraries
+sudo apt install git libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential
+
+Then you can run the build.sh and there will be some warnings but should not be any errors.
+Upon completion of the compile there should be an executable ccminer in the directory for use on your Raspberry pi.
